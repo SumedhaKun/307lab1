@@ -1,0 +1,23 @@
+{
+  "name": "express-backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/SumedhaKun/307lab1#readme",
+  "bugs": {
+    "url": "https://github.com/SumedhaKun/307lab1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SumedhaKun/307lab1.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
