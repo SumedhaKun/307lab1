@@ -1,5 +1,5 @@
 import express from "express";
-
+import cors from "cors";
 
 const users = {
     users_list: [
@@ -33,7 +33,7 @@ const users = {
   
 const app = express();
 const port = 8000;
-
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -51,11 +51,14 @@ const findUserByJob = (job, lis) => {
     (user) => user["job"] === job
   );
 }
+
+
   
   app.get("/users", (req, res) => {
     const name = req.query.name;
     const job = req.query.job;
     var result = users["users_list"];
+    console.log(result)
     
     if (name != undefined) {
       result = findUserByName(name, result);  
@@ -102,6 +105,7 @@ const addUser = (user) => {
   
   app.post("/users", (req, res) => {
     const userToAdd = req.body;
+    console.log(userToAdd)
     addUser(userToAdd);
     res.send();
   });
