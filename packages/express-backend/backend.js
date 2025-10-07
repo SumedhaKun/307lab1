@@ -92,22 +92,26 @@ app.delete("/users/:id", (req, res) => {
   const id = req.params["id"]; 
   let user = findUserById(id);
   console.log(user);
+  if (user == undefined) {
+    res.status(404).send("Resource not found")
+  }
   removeUser(user);
   if (findUserById(id) === undefined) {
-    res.send(result);
+    res.status(204).send();
   }
 })
 
 const addUser = (user) => {
+    let id = Math.floor(Math.random() * 100000)
+    user["id"] = id;
     users["users_list"].push(user);
     return user;
   };
   
   app.post("/users", (req, res) => {
     const userToAdd = req.body;
-    console.log(userToAdd)
-    addUser(userToAdd);
-    res.send();
+    let addedUser=addUser(userToAdd);
+    res.status(201).send(addedUser);
   });
 
 app.listen(port, () => {
