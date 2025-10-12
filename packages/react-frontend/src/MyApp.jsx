@@ -59,7 +59,7 @@ function MyApp() {
     }
       async function removeOneCharacter(index) {
         let character = characters.at(index);
-        let res =await deleteUser(character.id);
+        let res =await deleteUser(character._id);
         if(res.status==204){
           const updated = characters.filter((character, i) => {
             return i !== index;
